@@ -14,31 +14,31 @@ Steps:
    ENTRYPOINT ["java","-jar","/app.jar"]
 7. Add the spotify maven plugin in the plugins tab and change the repo name and image name. please refer the pom.xml plugins section.
      <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>1.4.3</version>
-                <executions>
-                    <execution>
-                        <id>default</id>
-                        <goals>
-                            <goal>build</goal>
-                            <goal>push</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <repository>ssyadavin/dockerpublish</repository>
-                    <tag>${project.version}</tag>
-                </configuration>
-                <dependencies>
-                    <!-- To make this work on JDK 9+ -->
-                    <dependency>
-                        <groupId>javax.activation</groupId>
-                        <artifactId>javax.activation-api</artifactId>
-                        <version>1.2.0</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
+        <groupId>com.spotify</groupId>
+        <artifactId>dockerfile-maven-plugin</artifactId>
+        <version>1.4.3</version>
+        <executions>
+            <execution>
+                <id>default</id>
+                <goals>
+                    <goal>build</goal>
+                    <goal>push</goal>
+                </goals>
+            </execution>
+        </executions>
+        <configuration>
+            <repository>ssyadavin/dockerpublish</repository>
+            <tag>${project.version}</tag>
+        </configuration>
+        <dependencies>
+            <!-- To make this work on JDK 9+ -->
+            <dependency>
+                <groupId>javax.activation</groupId>
+                <artifactId>javax.activation-api</artifactId>
+                <version>1.2.0</version>
+            </dependency>
+        </dependencies>
+    </plugin>
 8. Verify docker is intalled and running in your local system.
    docker -v
 10. Login to dockerhub and verify the repository. same name repository should not already exists.
